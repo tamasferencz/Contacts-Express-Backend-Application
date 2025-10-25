@@ -65,6 +65,7 @@ https://www.npmjs.com/
 - https://www.npmjs.com/package/express-async-handler
 - https://www.npmjs.com/package/mongodb
 - https://www.npmjs.com/package/mongoose, https://mongoosejs.com/
+- https://www.npmjs.com/package/swagger-ui-express, https://www.npmjs.com/package/swagger-autogen (http://localhost:5001/api-docs)
 
 ### development dependecies
 
@@ -120,8 +121,7 @@ docker compose down -v
 
 ### Create contact 1
 
-```bash
-curl -H 'Content-Type: application/json' \
+```bash curl -H 'Content-Type: application/json' \
       -d '{ "name":"Kis Pista","email":"pista@example.com", "phone": "0745778208"}' \
       -X POST \
       http://localhost:5001/api/contacts | jq .
