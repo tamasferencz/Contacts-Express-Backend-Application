@@ -3,17 +3,35 @@ const connectDb = require('./config/dbConnection');
 const dotenv = require('dotenv').config();
 const app = express();
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swaggerJsdoc = require('swagger-jsdoc');
+
 const PORT = process.env.PORT || 5000;
 
 connectDb();
 app.use(express.json());
 
-var options = {
-    explorer: true
+// Swagger config
+const swaggerOptions = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "Contacts API",
+            version: "1.0.0",
+            description: "API documentation for the Contacts Express backend",
+        },
+        servers: [
+            {
+                url: "http://localhost:5001",
+            },
+        ],
+    },
+    apis: ["./routes/*.js", "./controllers/*.js"], // path to your route files
 };
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Serve Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/test', (req, res) => {
     console.log("Test endpoint hit, request query is:", req.query);

@@ -65,7 +65,7 @@ https://www.npmjs.com/
 - https://www.npmjs.com/package/express-async-handler
 - https://www.npmjs.com/package/mongodb
 - https://www.npmjs.com/package/mongoose, https://mongoosejs.com/
-- https://www.npmjs.com/package/swagger-ui-express, https://www.npmjs.com/package/swagger-autogen (http://localhost:5001/api-docs)
+- https://www.npmjs.com/package/swagger-ui-express, https://www.npmjs.com/package/swagger-jsdoc
 
 ### development dependecies
 
@@ -75,6 +75,10 @@ https://www.npmjs.com/
 
 - dev mode: `npm run dev`
 - prod: `npm run`
+
+## Swagger ui
+
+Adjust the @swagger annotation (using Copilot) every time you change the methods to refect in swagger ui.
 
 # Project use cases
 
